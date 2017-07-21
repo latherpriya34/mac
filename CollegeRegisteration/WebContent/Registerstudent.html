@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link rel="stylesheet" href="index.css">
+</head>
+<body>
+<div id= "regform">
+<fieldset><legend> Your personel information:</legend>
+<h2>Register Student</h2>
+<form action="/CollegeRegisteration/Registerstudent">
+
+FirstName : <input type="text" name = "firstname"><br>
+MiddleName : <input type="text" name = "middlename"><br>
+LastName : <input type="text" name = "lastname"><br>
+Email: <input type="email" name = "email"><br>
+Password: <input type="password" name = "password"><br>
+Date of Birth : <input type="date" name = "birthday" max="2100-12-31"><br>
+Enrolled year: <input type="date" name = "enrolleddate" max="2050-12-31"><br>
+Gender:<select name="Gender" placeholder="Gender"><option>select<option>Male<option>Female</select><br/>
+Status:<select name="Status" placeholder="Status"><option>select<option>International<option>Permanent Resident</select><br/>
+
+<input type="submit" name ="submit">
+</form>
+</fieldset>
+</div>
+</body>
+</html>
