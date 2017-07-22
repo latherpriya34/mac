@@ -3,7 +3,7 @@ package com.collegeregistration.student;
 /**
  * Student Model
  *  
- * @author a.kumar
+ * @author Priya
  *
  */
 public class Model {
