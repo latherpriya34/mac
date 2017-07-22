@@ -96,16 +96,117 @@
     }
  
   #regform form{
-  				
+  				margin-left:100px;
   				padding: 3%; 
   }
   
   #regform h2{
-  margin-left: 50px;
+  margin-left: 120px;
   }
   
+  #loginforstudent {
+  					float:left;
+  					width:1250px;
+  					Height:500px;
+  					
+  					background-color: #ffffff;
+  					  }
  
-
+ #loginforstudent form {
+ 						
+ 						margin-left: 500px;
+ 						margin-top:150px;
+ 						padding: 10px;
+ 						
+ }
+ #loginforstudent form input[type=email]{
+ 		width: 30%;
+    padding: 10px 12px;
+    margin: 4px 0;
+    box-sizing: border-box;
+    border: 1px solid #555;
+    outline: none;
+ 
+ }
+ #loginforstudent form input[type=password]{
+ 		width: 30%;
+    padding: 10px 12px;
+    margin: 4px 0;
+    box-sizing: border-box;
+    border: 1px solid #555;
+    outline: none;
+ 
+ }
+ #loginforstudent form input[type=submit]{
+ 		width: 12%;
+    padding: 5px;
+    margin: 4px 0;
+  
+    border: 1px solid #555;
+    outline: none;
+ 
+ }
+ 
+ input[type=text]{
+ 		width: 70%;
+    padding: 10px 12px;
+    margin: 4px 0;
+    box-sizing: border-box;
+    border: 1px solid #555;
+    outline: none;
+ 
+ }
+ 
+ input[type=email]{
+ 		width: 70%;
+    padding: 10px 12px;
+    margin: 4px 0;
+    box-sizing: border-box;
+    border: 1px solid #555;
+    outline: none;
+ 
+ }
+ input[type=password]{
+ 		width: 70%;
+    padding: 10px 12px;
+    margin: 4px 0;
+    box-sizing: border-box;
+    border: 1px solid #555;
+    outline: none;
+ 
+ }
+ input[type=date]{
+ 		width: 70%;
+    padding: 10px 12px;
+    margin: 4px 0;
+    box-sizing: border-box;
+    border: 1px solid #555;
+    outline: none;
+ 
+ }
+ select{
+ 		width: 70%;
+    padding: 10px 12px;
+    margin: 4px 0;
+    box-sizing: border-box;
+    border: 1px solid #555;
+    outline: none;
+ 
+ }
+ 
+ input[type=submit]{
+ 		width: 30%;
+    padding: 5px;
+    margin: 4px 0;
+  
+    border: 1px solid #555;
+    outline: none;
+ 
+ }
+ 
+ 
+ 
+ 
   
    
     

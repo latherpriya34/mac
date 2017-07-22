@@ -1,22 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <element>
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" version="3.1">
   <display-name>CollegeRegisteration</display-name>
   <welcome-file-list>
     <welcome-file>index.html</welcome-file>
-    <welcome-file>index.css</welcome-file>
+    <welcome-file>index.htm</welcome-file>
     <welcome-file>index.jsp</welcome-file>
-    <welcome-file>default.html</welcome-file>
+    <welcome-file>Registerstudent.html</welcome-file>
+    <welcome-file>studentlogin.html</welcome-file>
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
+  
+  
+   <servlet>
+  <display-name>Getstudentinfo</display-name>
+<servlet-name>Getstudentinfo</servlet-name>
+<servlet-class>com.student.example.Getstudentinfo</servlet-class> 
+</servlet>
+<servlet-mapping>
+<servlet-name>Getstudentinfo</servlet-name>
+<url-pattern>/Getstudentinfo</url-pattern>
+</servlet-mapping>
+
   <servlet>
-  <display-name>RegisterStudent</display-name>
+  <display-name>Registerstudent</display-name>
 <servlet-name>Registerstudent</servlet-name>
-<servlet-class>com.collegeregistration.student</servlet-class> 
+<servlet-class>com.student.example.Registerstudent</servlet-class> 
 </servlet>
 <servlet-mapping>
 <servlet-name>Registerstudent</servlet-name>
 <url-pattern>/Registerstudent</url-pattern>
 </servlet-mapping>
-</web-app></element>
+  
+  
+</web-app>
+</element>

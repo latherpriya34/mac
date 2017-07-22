@@ -37,5 +37,38 @@ public class ProcessStudent {
 		return stud;
 	}
 
+	public boolean getstudentinfo(String email, String password){
+		
+		 boolean login = false;
+		try{
+		
+        String dbUsername, dbPassword;
+       
+        con = new DatabaseConnection();
+		Statement stat = con.getConnection();
+		ResultSet rs;
+        
+		try{
+			
+           rs =  stat.executeQuery("SELECT emailaddress, password FROM collegedatabase.registerdetail where emailaddress = '"+email+"'");
+             
+
+            while(rs.next()){
+                dbUsername = rs.getString("emailaddress");
+                dbPassword = rs.getString("password");
+
+                if(dbUsername.equals(email) && dbPassword.equals(password)){
+                    System.out.println("OK");
+                    login = true;
+                }}
+		
+		}catch (Exception e){
+			e.printStackTrace();
+		}
+		}catch(Exception ex){
+			ex.printStackTrace();
+		}
+		return login;
+	}
 	
 }
