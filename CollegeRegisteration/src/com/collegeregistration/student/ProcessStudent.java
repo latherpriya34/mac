@@ -1,12 +1,30 @@
 package com.collegeregistration.student;
 
+import java.io.PrintWriter;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.sql.ResultSet;
 public class ProcessStudent {
 	
 	DatabaseConnection con;
 	Model stud;
+	
+	public String insertjobdetail(String student_id, String job_title, String internship_type, String job_group, String job_description)
+	{
+		con = new DatabaseConnection();
+		Statement stat = con.getConnection();
+		
+		try{
+			System.out.print(student_id);
+			stat.executeUpdate("insert into studentjob(student_id,job_title, internship_type, job_group, job_description) values ('"+student_id+"','"+job_title+"', '"+internship_type+"' , '"+job_group+"', '"+job_description+"') ");
+		}
+		catch(Exception e)
+		{
+
+			return "Data failed " + e;
+		}
+		return "Data has inserted";
+	}
 	
 	public Model registerstudent(String fname,String mname,String lname,String email,String password,String dob,String enrollyear,String gender,String status) throws SQLException{
 		

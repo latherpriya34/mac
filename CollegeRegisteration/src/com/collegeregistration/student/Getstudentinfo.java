@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+
 /**
  * Servlet implementation class Getstudentinfo
  */
@@ -34,7 +35,7 @@ public class Getstudentinfo extends HttpServlet {
 	String email = request.getParameter("email");
 	String password = request.getParameter("password");
 	boolean login = pro.getstudentinfo(email, password);
-	
+	response.sendRedirect("Registerstudent.html");
 	out.println("You are successfully logged in.");
 	System.out.println(login);
 	}
