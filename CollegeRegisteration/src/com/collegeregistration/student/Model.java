@@ -1,5 +1,11 @@
 package com.collegeregistration.student;
 
+/**
+ * Student Model
+ *  
+ * @author a.kumar
+ *
+ */
 public class Model {
 	int studId;
 	String firstName;
@@ -10,6 +16,7 @@ public class Model {
 	String dateofBirth;
 	String gender;
 	String status;
+	
 	public int getStudId() {
 		return studId;
 	}
