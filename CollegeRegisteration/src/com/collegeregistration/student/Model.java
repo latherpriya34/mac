@@ -12,8 +12,9 @@ public class Model {
 	String MiddleName;
 	String lastName;
 	String emailaddress;
-	int phoneNo;
 	String dateofBirth;
+	int phoneNo;
+	String enrolledyear;
 	String gender;
 	String status;
 	
@@ -59,6 +60,12 @@ public class Model {
 	public void setDateofBirth(String dateofBirth) {
 		this.dateofBirth = dateofBirth;
 	}
+	public String getEnrolledyear() {
+		return enrolledyear;
+	}
+	public void setEnrolledyear(String enrolledyear) {
+		this.enrolledyear = enrolledyear;
+	}
 	public String getGender() {
 		return gender;
 	}
@@ -71,5 +78,6 @@ public class Model {
 	public void setStatus(String status) {
 		this.status = status;
 	}
+	
 	
 }
