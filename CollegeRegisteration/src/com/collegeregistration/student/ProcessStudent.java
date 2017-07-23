@@ -8,6 +8,23 @@ public class ProcessStudent {
 	DatabaseConnection con;
 	Model stud;
 	
+	public String insertjobdetail(String student_id, String job_title, String internship_type, String job_group, String job_description)
+	{
+		con = new DatabaseConnection();
+		Statement stat = con.getConnection();
+		
+		try{
+			System.out.print(student_id);
+			stat.executeUpdate("insert into studentjob(student_id,job_title, internship_type, job_group, job_description) values ('"+student_id+"','"+job_title+"', '"+internship_type+"' , '"+job_group+"', '"+job_description+"') ");
+		}
+		catch(Exception e)
+		{
+
+			return "Data failed " + e;
+		}
+		return "Data has inserted";
+	}
+	
 	public Model registerstudent(String fname,String mname,String lname,String email,String password,String dob,String enrollyear,String gender,String status) throws SQLException{
 		
 		try{
@@ -22,8 +39,9 @@ public class ProcessStudent {
 				stat.executeUpdate("insert into registerdetail(firstname, middlename, lastname, emailaddress,password, dob,enrolledyear, gender, status) values ('"+fname+"','"+mname+"','"+lname+"','"+email+"','"+password+"','"+dob+"','"+enrollyear+"','"+gender+"','"+status+"')");
 			    rs=stat.executeQuery("SELECT stud_id FROM collegedatabase.registerdetail where emailaddress = '"+email+"'");
 			    	if(rs.next())
-			    	{	j=rs.getInt("stud_id");
-			    		stud.setStudId(j);
+			    	{	
+			    		stud.setStudId(rs.getInt("stud_id"));
+			    	
 			    	}
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
@@ -37,16 +55,16 @@ public class ProcessStudent {
 		return stud;
 	}
 
-	public boolean getstudentinfo(String email, String password){
+	public Model getstudentinfo(String email, String password){
 		
-		 boolean login = false;
+		 
 		try{
-		
+		stud = new Model();
         String dbUsername, dbPassword;
        
         con = new DatabaseConnection();
 		Statement stat = con.getConnection();
-		ResultSet rs;
+		ResultSet rs, rs1;
         
 		try{
 			
@@ -58,8 +76,20 @@ public class ProcessStudent {
                 dbPassword = rs.getString("password");
 
                 if(dbUsername.equals(email) && dbPassword.equals(password)){
-                    System.out.println("OK");
-                    login = true;
+                	
+                	rs1 = stat.executeQuery("select * from collegedatabase.registerdetail where emailaddress = '"+email+"'");
+                	while(rs1.next()){
+                	stud.setStudId(rs1.getInt("stud_id"));
+		    		stud.setFirstName(rs1.getString("firstname"));
+		    		stud.setMiddleName(rs1.getString("middlename"));
+		    		stud.setLastName(rs1.getString("lastname"));
+		    		stud.setEmailaddress(rs1.getString("emailaddress"));
+		    		stud.setDateofBirth(rs1.getString("dob"));
+		    		stud.setEnrolledyear(rs1.getString("enrolledyear"));
+		    		stud.setGender(rs1.getString("gender"));
+		    		stud.setStatus(rs1.getString("status"));
+                	}
+                    
                 }}
 		
 		}catch (Exception e){
@@ -68,7 +98,7 @@ public class ProcessStudent {
 		}catch(Exception ex){
 			ex.printStackTrace();
 		}
-		return login;
+		return stud;
 	}
 	
 }

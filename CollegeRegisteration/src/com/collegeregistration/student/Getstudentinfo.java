@@ -29,14 +29,27 @@ public class Getstudentinfo extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		
+		Model data = new Model();
 		PrintWriter out = response.getWriter();
     ProcessStudent pro = new ProcessStudent();
 	String email = request.getParameter("email");
 	String password = request.getParameter("password");
-	boolean login = pro.getstudentinfo(email, password);
-	
+	 data = pro.getstudentinfo(email, password);
+	 out.println("<html><body>");
+	 out.println("<table border=1 width=70% height=50%>");
+     out.println("<tr><th>Student Id</th><th>Student First Name</th><th>Student Middle Name</th><th>Student Last Name</th><th>Email Address</th><th>Date Of Birth</th><th>Enrolled Year</th><th>Gender</th><th>Status</th><tr>");
+     out.println("<tr><td>" + data.getStudId() + "</td><td>" + data.getFirstName() + "</td><td>" + data.getMiddleName() + "</td><td>" + data.getLastName() + "</td><td>" + data.getEmailaddress() + "</td><td>" + data.getDateofBirth() + "</td><td>" + data.getEnrolledyear() + "</td><td>" + data.getGender() + "</td><td>" + data.getStatus() + "</td></tr>"); 
+     out.println("</table>");
+     out.println("</html></body>");
+     /*	if(login==true){
+		
+		response.sendRedirect("studentdata.html");
+	}else { 
+		response.sendRedirect("studentlogin.html");
+	}
+	*/
 	out.println("You are successfully logged in.");
-	System.out.println(login);
 	}
 
 	/**

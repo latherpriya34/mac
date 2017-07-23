@@ -5,9 +5,11 @@
   <welcome-file-list>
     <welcome-file>index.html</welcome-file>
     <welcome-file>index.htm</welcome-file>
+    <welcome-file>studentdata.html</welcome-file>
     <welcome-file>index.jsp</welcome-file>
     <welcome-file>Registerstudent.html</welcome-file>
     <welcome-file>studentlogin.html</welcome-file>
+    <welcome-file>student-job.html</welcome-file>
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
@@ -16,7 +18,7 @@
    <servlet>
   <display-name>Getstudentinfo</display-name>
 <servlet-name>Getstudentinfo</servlet-name>
-<servlet-class>com.student.example.Getstudentinfo</servlet-class> 
+<servlet-class>com.collegeregistration.student.Getstudentinfo</servlet-class> 
 </servlet>
 <servlet-mapping>
 <servlet-name>Getstudentinfo</servlet-name>
@@ -26,13 +28,21 @@
   <servlet>
   <display-name>Registerstudent</display-name>
 <servlet-name>Registerstudent</servlet-name>
-<servlet-class>com.student.example.Registerstudent</servlet-class> 
+<servlet-class>com.collegeregistration.student.Registerstudent</servlet-class> 
 </servlet>
 <servlet-mapping>
 <servlet-name>Registerstudent</servlet-name>
 <url-pattern>/Registerstudent</url-pattern>
 </servlet-mapping>
   
-  
+<servlet>
+<display-name>student-job</display-name>
+<servlet-name>student-job</servlet-name>
+<servlet-class>com.collegeregistration.student.Registerstudent</servlet-class> 
+</servlet>
+<servlet-mapping>
+<servlet-name>student-job</servlet-name>
+<url-pattern>/student-job</url-pattern>
+</servlet-mapping>
 </web-app>
 </element>
