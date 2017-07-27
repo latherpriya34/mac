@@ -17,6 +17,8 @@ public class Model {
 	String enrolledyear;
 	String gender;
 	String status;
+	String job_title;
+	String internship_type;
 	
 	public int getStudId() {
 		return studId;
@@ -77,6 +79,18 @@ public class Model {
 	}
 	public void setStatus(String status) {
 		this.status = status;
+	}
+	public String getJob_title() {
+		return job_title;
+	}
+	public void setJob_title(String job_title) {
+		this.job_title = job_title;
+	}
+	public String getInternship_type() {
+		return internship_type;
+	}
+	public void setInternship_type(String internship_type) {
+		this.internship_type = internship_type;
 	}
 	
 	

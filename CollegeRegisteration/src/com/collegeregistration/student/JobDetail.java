@@ -29,14 +29,18 @@ public class JobDetail extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		ProcessStudent p = new ProcessStudent();
+		Model r = new Model();
 		String student_id= request.getParameter("studentid");
 		String job_title = request.getParameter("jobtitle");
 		String internship_type = request.getParameter("internshiptype");
 		String job_group = request.getParameter("jobgroup");
 		String job_description = request.getParameter("description");
-		String r= p.insertjobdetail(student_id, job_title, internship_type, job_group, job_description);
+		r= p.insertjobdetail(student_id, job_title, internship_type, job_group, job_description);
 		PrintWriter out = response.getWriter();
-		out.println(r);
+		out.println(r.getJob_title());
+		out.println(r.getInternship_type());
+		
+
 		
 		
 	}

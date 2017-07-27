@@ -1,5 +1,4 @@
 package com.collegeregistration.student;
-
 import java.io.IOException;
 import java.io.PrintWriter;
 
@@ -9,6 +8,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
  * Servlet implementation class Getstudentinfo
@@ -30,8 +31,9 @@ public class Getstudentinfo extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		ApplicationContext context = new ClassPathXmlApplicationContext("Beans.xml");
+	    Model data = (Model) context.getBean("helloWorld");
 		
-		Model data = new Model();
 		PrintWriter out = response.getWriter();
     ProcessStudent pro = new ProcessStudent();
 	String email = request.getParameter("email");

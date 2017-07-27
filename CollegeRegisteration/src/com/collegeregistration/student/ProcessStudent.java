@@ -1,6 +1,5 @@
 package com.collegeregistration.student;
 
-import java.io.PrintWriter;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -9,23 +8,47 @@ public class ProcessStudent {
 	DatabaseConnection con;
 	Model stud;
 	
-	public String insertjobdetail(String student_id, String job_title, String internship_type, String job_group, String job_description)
+	public Model insertjobdetail(String student_id, String job_title, String internship_type, String job_group, String job_description)
+	{
+		stud = new Model();
+		con = new DatabaseConnection();
+		Statement stat = con.getConnection();
+		ResultSet rs;
+		
+		try{
+			System.out.print(student_id);
+			stat.executeUpdate("insert into studentjob(student_id,job_title, internship_type, job_group, job_description) values ('"+student_id+"','"+job_title+"', '"+internship_type+"' , '"+job_group+"', '"+job_description+"') ");
+		    rs = stat.executeQuery("Select job_title,internship_type from studentjob where student_id = '"+student_id+"'");
+		    if(rs.next()){
+		    	
+		    stud.setJob_title(rs.getString("job_title"));
+		    stud.setInternship_type(rs.getString("internship_type"));	
+		    }
+		}
+		catch(Exception e)
+		{
+
+			System.out.println(e);
+		}
+		return stud;
+	}
+	
+	public String createcompanyprofile(String internshiptype, String companyname, String address, String city, String postal, String province, String country, String telephone, String email, String website)
 	{
 		con = new DatabaseConnection();
 		Statement stat = con.getConnection();
 		
 		try{
-			System.out.print(student_id);
-			stat.executeUpdate("insert into studentjob(student_id,job_title, internship_type, job_group, job_description) values ('"+student_id+"','"+job_title+"', '"+internship_type+"' , '"+job_group+"', '"+job_description+"') ");
+			System.out.print(companyname);
+			stat.executeUpdate("insert into companyprofile(internshiptype,company_name, address, city, postal, province, country,telephone, email, website) values ('"+internshiptype+"','"+companyname+"', '"+address+"' , '"+city+"', '"+postal+"', '"+province+"', '"+country+"', '"+telephone+"', '"+email+"', '"+website+"') ");
 		}
 		catch(Exception e)
 		{
 
 			return "Data failed " + e;
 		}
-		return "Data has inserted";
+		return "Company Profile has been created";
 	}
-	
 	public Model registerstudent(String fname,String mname,String lname,String email,String password,String dob,String enrollyear,String gender,String status) throws SQLException{
 		
 		try{

@@ -2,6 +2,7 @@
     <wb-module deploy-name="CollegeRegisteration">
         <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/libs"/>
         <property name="context-root" value="CollegeRegisteration"/>
         <property name="java-output-path" value="/CollegeRegisteration/build/classes"/>
     </wb-module>
