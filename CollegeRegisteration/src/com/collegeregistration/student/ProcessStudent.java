@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 public class ProcessStudent {
 	
 	DatabaseConnection con;
-	Model stud;
+	Student stud;
 	
 	public String insertjobdetail(String student_id, String job_title, String internship_type, String job_group, String job_description)
 	{
@@ -25,11 +25,11 @@ public class ProcessStudent {
 		return "Data has inserted";
 	}
 	
-	public Model registerstudent(String fname,String mname,String lname,String email,String password,String dob,String enrollyear,String gender,String status) throws SQLException{
+	public Student registerstudent(String fname,String mname,String lname,String email,String password,String dob,String enrollyear,String gender,String status) throws SQLException{
 		
 		try{
 			
-			 stud = new Model();
+			 stud = new Student();
 			con = new DatabaseConnection();
 			Statement stat = con.getConnection();
 			ResultSet rs;
@@ -55,11 +55,11 @@ public class ProcessStudent {
 		return stud;
 	}
 
-	public Model getstudentinfo(String email, String password){
+	public Student getstudentinfo(String email, String password){
 		
 		 
 		try{
-		stud = new Model();
+		stud = new Student();
         String dbUsername, dbPassword;
        
         con = new DatabaseConnection();
@@ -100,5 +100,70 @@ public class ProcessStudent {
 		}
 		return stud;
 	}
+	
+public Student registerstaff(String fname,String mname,String lname,String email,String password) throws SQLException{
+		
+		try{
+			
+			 stud = new Student();
+			con = new DatabaseConnection();
+			Statement stat = con.getConnection();
+			ResultSet rs;
+			int j =0 ;
+			
+			try {
+				stat.executeUpdate("insert into staff(firstname, middlename, lastname, emailaddress,password) values ('"+fname+"','"+mname+"','"+lname+"','"+email+"','"+password+"')");
+			    rs=stat.executeQuery("SELECT staff_id FROM collegedatabase.staff where emailaddress = '"+email+"'");
+			    	if(rs.next())
+			    	{	
+			    		stud.setStaffId(rs.getInt("staff_id"));
+			    	
+			    	}
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}	
+		}
+		catch(NullPointerException e){
+			e.printStackTrace();
+		}
+	
+		return stud;
+	}
+
+public boolean staffloginpage(String email, String password){
+	
+	boolean outfromdatabase = false;
+	 
+	try{
+	stud = new Student();
+    String dbUsername, dbPassword ;
+   
+    con = new DatabaseConnection();
+	Statement stat = con.getConnection();
+	ResultSet rs;
+    
+	try{
+		
+       rs =  stat.executeQuery("SELECT emailaddress, password FROM collegedatabase.staff where emailaddress = '"+email+"'");
+         
+
+        while(rs.next()){
+            dbUsername = rs.getString("emailaddress");
+            dbPassword = rs.getString("password");
+
+            if(dbUsername.equals(email) && dbPassword.equals(password)){
+            	
+            	outfromdatabase = true;                
+            }}
+	
+	}catch (Exception e){
+		e.printStackTrace();
+	}
+	}catch(Exception ex){
+		ex.printStackTrace();
+	}
+	return outfromdatabase;
+}
 	
 }

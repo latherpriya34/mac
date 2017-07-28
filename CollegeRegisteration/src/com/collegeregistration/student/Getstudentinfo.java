@@ -30,14 +30,14 @@ public class Getstudentinfo extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
-		Model data = new Model();
+		Student data = new Student();
 		PrintWriter out = response.getWriter();
     ProcessStudent pro = new ProcessStudent();
 	String email = request.getParameter("email");
 	String password = request.getParameter("password");
 	 data = pro.getstudentinfo(email, password);
 	 out.println("<html><body>");
-	 out.println("<table border=1 width=70% height=50%>");
+	 out.println("<table border=1 width=40% height=20%>");
      out.println("<tr><th>Student Id</th><th>Student First Name</th><th>Student Middle Name</th><th>Student Last Name</th><th>Email Address</th><th>Date Of Birth</th><th>Enrolled Year</th><th>Gender</th><th>Status</th><tr>");
      out.println("<tr><td>" + data.getStudId() + "</td><td>" + data.getFirstName() + "</td><td>" + data.getMiddleName() + "</td><td>" + data.getLastName() + "</td><td>" + data.getEmailaddress() + "</td><td>" + data.getDateofBirth() + "</td><td>" + data.getEnrolledyear() + "</td><td>" + data.getGender() + "</td><td>" + data.getStatus() + "</td></tr>"); 
      out.println("</table>");

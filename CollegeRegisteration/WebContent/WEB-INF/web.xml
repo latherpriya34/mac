@@ -12,6 +12,9 @@
     <welcome-file>student-job.html</welcome-file>
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
+    <welcome-file>staff.html</welcome-file>
+    <welcome-file>stafflogin.html</welcome-file>
+    <welcome-file>staffindex.html</welcome-file>
   </welcome-file-list>
   
   
@@ -43,6 +46,16 @@
 <servlet-mapping>
 <servlet-name>student-job</servlet-name>
 <url-pattern>/student-job</url-pattern>
+</servlet-mapping>
+
+<servlet>
+<display-name>Loginforstaff</display-name>
+<servlet-name>Loginforstaff</servlet-name>
+<servlet-class>com.collegeregistration.student.Loginforstaff</servlet-class> 
+</servlet>
+<servlet-mapping>
+<servlet-name>Loginforstaff</servlet-name>
+<url-pattern>/Loginforstaff</url-pattern>
 </servlet-mapping>
 </web-app>
 </element>

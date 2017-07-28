@@ -6,8 +6,8 @@ package com.collegeregistration.student;
  * @author Priya
  *
  */
-public class Model {
-	int studId;
+public class Student {
+	int studId,staffId;
 	String firstName;
 	String MiddleName;
 	String lastName;
@@ -16,6 +16,7 @@ public class Model {
 	String enrolledyear;
 	String gender;
 	String status;
+	
 	
 	public int getStudId() {
 		return studId;
@@ -70,6 +71,12 @@ public class Model {
 	}
 	public void setStatus(String status) {
 		this.status = status;
+	}
+	public int getStaffId() {
+		return staffId;
+	}
+	public void setStaffId(int staffId) {
+		this.staffId = staffId;
 	}
 	
 	

@@ -2,10 +2,8 @@
 
 
 
-.fullbody{
-	
-        border: 6px single blue;
-        height: 700px;
+#fullbody{
+        height: 720px;
         width: 1500px;
         background: #dddddd;
     }
@@ -17,16 +15,18 @@
     }
     #hd {
         margin-left: 250px;
-        width: 1270px;
+        width: 1200px;
         height: 100px;
         padding: 25px;
-        background: white;
+        background: #B090B3;
         
     }
     
-    #hd h3 {
+    #hd h2 {
         float: left;
         margin-left:35%;
+        color: #FAA3AB;
+        font-style: italic;
     }
     #header img {
         
@@ -76,25 +76,27 @@
     }
     
     #loginbox ul {
- 
+     float:left;
     list-style: none;
     }
     
     #loginbox ul li {
+    float:left;
     background-color: red;
     
     width: 100px;
     height: 30px;
     text-align: center;
     line-height: 30px;
-    float:  left;
+    
     position: relative;
     border-radius:8px;
-    margin:2px;
+   
     }
     #loginbox ul li a {text-decoration: none;
     display: block;
     color:white;
+  
     }
     
     #loginbox ul li a:hover{
@@ -107,11 +109,10 @@
     position: absolute;
     display:none;
     
+    
     }
     
-    #loginbox ul ul{
-    float: left;
-    }
+    
     
     #loginbox ul li:hover > ul {
    display: block;

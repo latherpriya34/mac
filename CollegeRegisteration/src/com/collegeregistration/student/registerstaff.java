@@ -11,29 +11,27 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class Registerstudent
+ * Servlet implementation class registerstaff
  */
-@WebServlet("/Registerstudent")
-public class Registerstudent extends HttpServlet {
+@WebServlet("/registerstaff")
+public class registerstaff extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Registerstudent() {
+    public registerstaff() {
         super();
         // TODO Auto-generated constructor stub
     }
 
-    ProcessStudent pro;
-    
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
-		 pro = new ProcessStudent();
+		ProcessStudent pro = new ProcessStudent();
 		Student generatedid = new Student();
 		
 	
@@ -43,26 +41,18 @@ public class Registerstudent extends HttpServlet {
 		String email = request.getParameter("email");
 		String password = request.getParameter("password");
 		
-		String dob = request.getParameter("birthday");
-		String enrollyear = request.getParameter("enrolleddate");
-		String gender = request.getParameter("Gender");
-		String status = request.getParameter("Status");
-		
-		
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
 		
-		
 		try {
-			generatedid = pro.registerstudent(fname, mname, lname, email, password , dob, enrollyear, gender, status);
+			generatedid = pro.registerstaff(fname, mname, lname, email, password);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-	
-		out.println(" Your Student Id number is = " + generatedid.getStudId());
-		}
-	
+		
+		out.println("Your generated id is " + generatedid.getStaffId());
+	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
