@@ -2,6 +2,7 @@ package com.collegeregistration.student;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.SQLException;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,16 +11,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class jobdetail
+ * Servlet implementation class registerstaff
  */
-@WebServlet("/JobDetail")
-public class JobDetail extends HttpServlet {
+@WebServlet("/registerstaff")
+public class registerstaff extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public JobDetail() {
+    public registerstaff() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -28,21 +29,29 @@ public class JobDetail extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		ProcessStudent p = new ProcessStudent();
-		Student r = new Student();
-		String student_id= request.getParameter("studentid");
-		String job_title = request.getParameter("jobtitle");
-		String internship_type = request.getParameter("internshiptype");
-		String job_group = request.getParameter("jobgroup");
-		String job_description = request.getParameter("description");
-		r= p.insertjobdetail(student_id, job_title, internship_type, job_group, job_description);
+		// TODO Auto-generated method stub
+		
+		ProcessStudent pro = new ProcessStudent();
+		Student generatedid = new Student();
+		
+	
+		String fname = request.getParameter("firstname");
+		String mname = request.getParameter("middlename");
+		String lname = request.getParameter("lastname");
+		String email = request.getParameter("email");
+		String password = request.getParameter("password");
+		
+		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
-		//out.println(r.getJob_title());
-		//out.println(r.getInternship_type());
 		
-
+		try {
+			generatedid = pro.registerstaff(fname, mname, lname, email, password);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
-		
+		out.println("Your generated id is " + generatedid.getStaffId());
 	}
 
 	/**

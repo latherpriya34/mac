@@ -34,7 +34,7 @@ public class Registerstudent extends HttpServlet {
 		// TODO Auto-generated method stub
 		
 		 pro = new ProcessStudent();
-		Model generatedid = new Model();
+		Student generatedid = new Student();
 		
 	
 		String fname = request.getParameter("firstname");

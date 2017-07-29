@@ -31,9 +31,11 @@ public class Getstudentinfo extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+
 		ApplicationContext context = new ClassPathXmlApplicationContext("Beans.xml");
-	    Model data = (Model) context.getBean("helloWorld");
+	    
 		
+		Student data = new Student();
 		PrintWriter out = response.getWriter();
     ProcessStudent pro = new ProcessStudent();
 	String email = request.getParameter("email");

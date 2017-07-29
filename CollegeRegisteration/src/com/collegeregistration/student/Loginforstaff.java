@@ -10,16 +10,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class jobdetail
+ * Servlet implementation class Loginforstaff
  */
-@WebServlet("/JobDetail")
-public class JobDetail extends HttpServlet {
+@WebServlet("/Loginforstaff")
+public class Loginforstaff extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public JobDetail() {
+    public Loginforstaff() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -28,21 +28,24 @@ public class JobDetail extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		ProcessStudent p = new ProcessStudent();
-		Student r = new Student();
-		String student_id= request.getParameter("studentid");
-		String job_title = request.getParameter("jobtitle");
-		String internship_type = request.getParameter("internshiptype");
-		String job_group = request.getParameter("jobgroup");
-		String job_description = request.getParameter("description");
-		r= p.insertjobdetail(student_id, job_title, internship_type, job_group, job_description);
+		// TODO Auto-generated method stub
+		ProcessStudent pro = new ProcessStudent();
+		String email = request.getParameter("email");
+		String password = request.getParameter("password");
 		PrintWriter out = response.getWriter();
-		//out.println(r.getJob_title());
-		//out.println(r.getInternship_type());
+		response.setContentType("text/html");
 		
-
+		boolean outfromdatabase = pro.staffloginpage(email, password);
+		if(outfromdatabase ==true)
+		{
+		response.sendRedirect("staffindex.html");
+		}
+		else
+		{
+			response.sendRedirect("stafflogin.html");
+		}
 		
-		
+		System.out.println("login successful");
 	}
 
 	/**
