@@ -16,6 +16,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  */
 @WebServlet("/Getstudentinfo")
 public class Getstudentinfo extends HttpServlet {
+	
 	private static final long serialVersionUID = 1L;
        
     /**
