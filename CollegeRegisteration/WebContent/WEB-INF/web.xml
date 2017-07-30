@@ -15,6 +15,7 @@
     <welcome-file>staff.html</welcome-file>
     <welcome-file>stafflogin.html</welcome-file>
     <welcome-file>staffindex.html</welcome-file>
+    <welcome-file>deletestudent.html</welcome-file>
   </welcome-file-list>
   
   
@@ -56,6 +57,16 @@
 <servlet-mapping>
 <servlet-name>Loginforstaff</servlet-name>
 <url-pattern>/Loginforstaff</url-pattern>
+</servlet-mapping>
+
+<servlet>
+<display-name>Deletestudent</display-name>
+<servlet-name>Deletestudent</servlet-name>
+<servlet-class>com.collegeregistration.student.Deletestudent</servlet-class> 
+</servlet>
+<servlet-mapping>
+<servlet-name>Deletestudent</servlet-name>
+<url-pattern>/Deletestudent</url-pattern>
 </servlet-mapping>
 </web-app>
 </element>

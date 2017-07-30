@@ -165,5 +165,30 @@ public boolean staffloginpage(String email, String password){
 	}
 	return outfromdatabase;
 }
+
+public String deletestudent(int stud_Id){
 	
+	String result = "your row has been deleted.";
+	try{
+	stud = new Student();
+   
+    
+   
+    con = new DatabaseConnection();
+	Statement stat = con.getConnection();
+	
+            	
+            	stat.executeUpdate("delete from collegedatabase.registerdetail " + " where stud_id = "+stud_Id+" ");                
+            
+            
+        
+        
+	
+	
+	
+	}catch(Exception ex){
+		ex.printStackTrace();
+	}
+	return result;
+}
 }
